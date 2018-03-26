@@ -8,8 +8,11 @@
 
 #include <iostream>
 
+#include "Helper.h"
+
 int main(int argc, const char * argv[]) {
-    // insert code here...
+    Helper helper;
+    helper.copyFolder("/Users/alexseifert/Downloads", "/Users/alexseifert/Desktop");
     std::cout << "Hello, World!\n";
     return 0;
 }
