@@ -1,2 +1,2 @@
 default:
-	g++ -o libscratchpad.o src/*.cpp
+	g++ -o build/libscratchpad.o src/*.cpp
