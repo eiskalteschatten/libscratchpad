@@ -1,15 +1,17 @@
 .PHONY: test
 
 default:
-	g++ -o ./build/libscratchpad.o ./src/*.cpp \
-		-lboost_filesystem
+	g++ -lboost_filesystem \
+		./src/*.cpp \
+		-o ./build/libscratchpad.o
 
 install-libs-mac:
 	brew install boost
 
 test:
-	g++ -o ./build/test ./test/*.cpp \
-		-lboost_unit_test_framework \
-		-lboost_filesystem
+	g++ -lboost_unit_test_framework \
+		-lboost_filesystem \
+		./test/*.cpp \
+		-o ./build/test
 	chmod u+x ./build/test
 	./build/test
