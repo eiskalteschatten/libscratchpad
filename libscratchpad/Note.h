@@ -20,6 +20,7 @@ private:
     int pageNumber;
     
 public:
+    Note(std::string pathToNote);
     void save();
     void deleteNote();
     

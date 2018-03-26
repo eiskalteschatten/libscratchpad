@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		93F5887A2068D292005767EE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93F588792068D292005767EE /* main.cpp */; };
+		93F588822068D2A4005767EE /* Note.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93F588802068D2A4005767EE /* Note.cpp */; };
+		93F588852068D352005767EE /* Settings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93F588832068D352005767EE /* Settings.cpp */; };
+		93F588882068D64C005767EE /* Helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93F588862068D64C005767EE /* Helper.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,12 @@
 /* Begin PBXFileReference section */
 		93F588762068D292005767EE /* libscratchpad */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = libscratchpad; sourceTree = BUILT_PRODUCTS_DIR; };
 		93F588792068D292005767EE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		93F588802068D2A4005767EE /* Note.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Note.cpp; sourceTree = "<group>"; };
+		93F588812068D2A4005767EE /* Note.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		93F588832068D352005767EE /* Settings.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Settings.cpp; sourceTree = "<group>"; };
+		93F588842068D352005767EE /* Settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		93F588862068D64C005767EE /* Helper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Helper.cpp; sourceTree = "<group>"; };
+		93F588872068D64C005767EE /* Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +67,12 @@
 			isa = PBXGroup;
 			children = (
 				93F588792068D292005767EE /* main.cpp */,
+				93F588802068D2A4005767EE /* Note.cpp */,
+				93F588812068D2A4005767EE /* Note.h */,
+				93F588832068D352005767EE /* Settings.cpp */,
+				93F588842068D352005767EE /* Settings.h */,
+				93F588862068D64C005767EE /* Helper.cpp */,
+				93F588872068D64C005767EE /* Helper.h */,
 			);
 			path = libscratchpad;
 			sourceTree = "<group>";
@@ -120,6 +135,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				93F5887A2068D292005767EE /* main.cpp in Sources */,
+				93F588822068D2A4005767EE /* Note.cpp in Sources */,
+				93F588852068D352005767EE /* Settings.cpp in Sources */,
+				93F588882068D64C005767EE /* Helper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

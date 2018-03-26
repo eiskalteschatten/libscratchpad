@@ -9,6 +9,10 @@
 #include "Settings.h"
 
 
+Settings::Settings(std::string pathToSettings) {
+    
+}
+
 
 // Getters and setters
 

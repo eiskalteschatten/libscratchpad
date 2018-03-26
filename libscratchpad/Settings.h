@@ -17,6 +17,7 @@ private:
     
     
 public:
+    Settings(std::string pathToSettings);
     
     // Getters and setters
 };
