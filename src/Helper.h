@@ -14,7 +14,7 @@
 
 class Helper {
 public:
-    bool copyFolder(std::string pathToCopy, std::string destination);
+    static bool copyFolder(std::string pathToCopy, std::string destination);
 };
 
 #endif /* Helper_h */

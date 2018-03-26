@@ -14,7 +14,7 @@ namespace bfs = boost::filesystem;
 
 bool Helper::copyFolder(std::string pathToCopy, std::string destination) {
 
-	bfs::copy_directory(bfs::path(pathToCopy), bfs::path(destination));
+	//bfs::copy_directory(bfs::path(pathToCopy), bfs::path(destination));
 
 	return true;
 }
