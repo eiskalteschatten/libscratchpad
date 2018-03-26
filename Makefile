@@ -9,7 +9,7 @@ install-libs-mac:
 	brew install boost
 
 test:
-	g++ -L /opt/local/lib -lboost_unit_test_framework \
+	g++ -lboost_unit_test_framework \
 		-lboost_filesystem \
 		./test/*.cpp \
 		-o ./build/test
