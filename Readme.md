@@ -1,6 +1,6 @@
 # libscratchpad
 
-This is the C++ library that will power the newest version of [ScratchPad](https://github.com/eiskalteschatten/ScratchPad).
+This is the C++ library that will power the newest version of [ScratchPad](https://github.com/eiskalteschatten/ScratchPad2).
 
 ## Dependencies
 
