@@ -11,8 +11,6 @@
 #include "Helper.h"
 
 int main(int argc, const char * argv[]) {
-    Helper helper;
-    helper.copyFolder("/Users/alexseifert/Downloads", "/Users/alexseifert/Desktop");
     std::cout << "Hello, World!\n";
     return 0;
 }
