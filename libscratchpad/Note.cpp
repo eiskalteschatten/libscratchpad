@@ -9,15 +9,15 @@
 #include "Note.h"
 
 Note::Note(std::string pathToNote) {
-    
+
 }
 
 void Note::save() {
-    
+
 }
 
 void Note::deleteNote() {
-    
+
 }
 
 
