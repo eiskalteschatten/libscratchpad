@@ -6,8 +6,6 @@
 //  Copyright © 2018 Alex Seifert. All rights reserved.
 //
 
-#define BOOST_TEST_MODULE Note
-
 #include <boost/test/unit_test.hpp>
 #include <string>
 
