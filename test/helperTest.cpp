@@ -16,7 +16,7 @@ BOOST_AUTO_TEST_SUITE(helperSuite);
 
 BOOST_AUTO_TEST_CASE(copyFolder)
 {
-    BOOST_CHECK(Helper::copyFolder("test", "test") == 1);
+    BOOST_CHECK(Helper::copyFolder("test", "test") == true);
 }
 
 BOOST_AUTO_TEST_SUITE_END();
