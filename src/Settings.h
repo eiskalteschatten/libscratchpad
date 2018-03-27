@@ -14,12 +14,12 @@
 
 class Settings {
 private:
-    
-    
+
+
 public:
     Settings(std::string pathToSettings);
-    
-    // Getters and setters
+
+    // Getters
 };
 
 #endif /* Settings_h */

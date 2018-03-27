@@ -14,25 +14,23 @@
 
 class Note {
 private:
+    std::string pathToNote;
     std::string name;
     std::string dateCreated;
     std::string contents;
     int pageNumber;
-    
+
 public:
-    Note(std::string pathToNote);
+    Note(std::string ptn);
     void save();
     void deleteNote();
-    
-    // Getters and setters
-    void setName(std::string name);
-    std::string getName();
-    void setDateCreated(std::string dateCreated);
-    std::string getDateCreated();
-    void setContents(std::string contents);
-    std::string getContents();
-    void setPageNumber(int pageNumber);
-    int getPageNumber();
+
+    // Getters
+    std::string const& getPathToNote() {return pathToNote;}
+    std::string const& getName() {return name;}
+    std::string const& getDateCreated() {return dateCreated;}
+    std::string const& getContents() {return contents;}
+    int const& getPageNumber() {return pageNumber;}
 };
 
 #endif /* Note_h */

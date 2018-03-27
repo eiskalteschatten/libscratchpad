@@ -19,11 +19,12 @@ clean:
 all: $(BUILD_DIR)/$(LIB_NAME) clean
 
 test:
-	$(CXX) -lboost_unit_test_framework \
-		   -lboost_filesystem \
-		   ./$(SRC_DIR)/*.cpp \
-		   ./test/*.cpp \
-		   -o ./$(BUILD_DIR)/test
+	$(CXX) \
+		-lboost_unit_test_framework \
+		-lboost_filesystem \
+		./$(SRC_DIR)/*.cpp \
+		./test/*.cpp \
+		-o ./$(BUILD_DIR)/test
 	chmod u+x ./$(BUILD_DIR)/test
 	./$(BUILD_DIR)/test
 
