@@ -8,8 +8,10 @@
 
 #include "Note.h"
 
-Note::Note(std::string ptn) {
+Note::Note(std::string ptn, std::string n, std::string c) {
     pathToNote = ptn;
+    name = n;
+    contents = c;
 }
 
 void Note::save() {

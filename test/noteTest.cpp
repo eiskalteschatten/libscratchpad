@@ -16,10 +16,14 @@ BOOST_AUTO_TEST_SUITE(noteSuite);
 BOOST_AUTO_TEST_CASE(getters)
 {
     std::string pathToNote = "/path/to/note.txt";
-    //std::string noteName = "test note";
+    std::string noteName = "test note";
+    std::string contents = "note contents should go here";
 
-    Note note(pathToNote);
+    Note note(pathToNote, noteName, contents);
+
     BOOST_CHECK(note.getPathToNote() == pathToNote);
+    BOOST_CHECK(note.getName() == noteName);
+    BOOST_CHECK(note.getContents() == contents);
 }
 
 BOOST_AUTO_TEST_SUITE_END();

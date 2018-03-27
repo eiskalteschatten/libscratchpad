@@ -21,7 +21,7 @@ private:
     int pageNumber;
 
 public:
-    Note(std::string ptn);
+    Note(std::string ptn, std::string n, std::string c);
     void save();
     void deleteNote();
 
