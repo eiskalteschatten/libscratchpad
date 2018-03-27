@@ -18,26 +18,26 @@ BOOST_AUTO_TEST_SUITE(helperSuite);
 
 BOOST_AUTO_TEST_CASE(copyFolder)
 {
-    namespace bfs = boost::filesystem;
+    namespace fs = boost::filesystem;
 
     std::string tmpPath = "/tmp/folder-to-copy";
     std::string testFile = "test.txt";
 
-    bfs::path pathToCopy = bfs::current_path();
+    fs::path pathToCopy = fs::current_path();
     pathToCopy /= "test/data/folder-to-copy";
 
-    if (bfs::is_directory(tmpPath))
+    if (fs::is_directory(tmpPath))
     {
-        bfs::remove_all(tmpPath);
+        fs::remove_all(tmpPath);
     }
 
     bool folderCopied = Helper::copyFolder(pathToCopy.string(), tmpPath);
     BOOST_CHECK(folderCopied == true);
 
-    BOOST_CHECK(bfs::is_directory(tmpPath) == true);
-    BOOST_CHECK(bfs::exists(tmpPath + "/" + testFile) == true);
+    BOOST_CHECK(fs::is_directory(tmpPath) == true);
+    BOOST_CHECK(fs::exists(tmpPath + "/" + testFile) == true);
 
-    bfs::remove_all(tmpPath);
+    fs::remove_all(tmpPath);
 }
 
 BOOST_AUTO_TEST_SUITE_END();
