@@ -6,8 +6,9 @@
 //  Copyright © 2018 Alex Seifert. All rights reserved.
 //
 
-#include <iostream>
 #include <boost/filesystem.hpp>
+#include <iostream>
+#include <regex>
 
 #include "Helper.h"
 
@@ -66,4 +67,9 @@ void Helper::copyFile(std::string pathToCopy, std::string destinationStr) {
     catch(fs::filesystem_error const& e) {
         throw e;
     }
+}
+
+std::string Helper::filterPathName(std::string name) {
+    std::regex pathFilter("[^A-Za-z0-9.-]");
+    return std::regex_replace(name, pathFilter, "_");
 }

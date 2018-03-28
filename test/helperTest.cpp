@@ -60,4 +60,11 @@ BOOST_AUTO_TEST_CASE(copyFile) {
     fs::remove_all(tmpPath);
 }
 
+BOOST_AUTO_TEST_CASE(filterPathName) {
+    std::string nameToFilter = "some name with spaces";
+    std::string filteredName = Helper::filterPathName(nameToFilter);
+
+    BOOST_CHECK(filteredName == "some_name_with_spaces");
+}
+
 BOOST_AUTO_TEST_SUITE_END();
