@@ -5,7 +5,7 @@ This is the C++ library that will power the newest version of [ScratchPad](https
 
 ## Dependencies
 
-- [Boost](http://www.boost.org/)
+- [Boost](http://www.boost.org/) 1.66.0
 
 ---
 
