@@ -58,3 +58,12 @@ bool Helper::copyFolder(std::string pathToCopy, std::string destinationStr) {
 
     return true;
 }
+
+void Helper::copyFile(std::string pathToCopy, std::string destinationStr) {
+    try {
+        fs::copy_file(pathToCopy, destinationStr);
+    }
+    catch(fs::filesystem_error const& e) {
+        throw e;
+    }
+}
