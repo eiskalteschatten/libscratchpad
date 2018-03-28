@@ -13,6 +13,8 @@
 
 #include "../src/Note.h"
 
+namespace fs = boost::filesystem;
+
 BOOST_AUTO_TEST_SUITE(noteSuite);
 
 BOOST_AUTO_TEST_CASE(getters) {
@@ -30,8 +32,6 @@ BOOST_AUTO_TEST_CASE(getters) {
 }
 
 BOOST_AUTO_TEST_CASE(saveNote) {
-    namespace fs = boost::filesystem;
-
     std::string tmpPath = "/tmp/libscratchpad/";
     std::string pathToNote = tmpPath + "test/";
     std::string noteName = "test note";
