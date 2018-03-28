@@ -1,4 +1,4 @@
-.PHONY: test clean
+.PHONY: test clean build
 
 CXX=g++
 CXXFLAGS=-c -Wall
