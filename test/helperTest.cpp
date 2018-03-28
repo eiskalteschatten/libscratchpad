@@ -24,8 +24,14 @@ BOOST_AUTO_TEST_CASE(copyFolder) {
     fs::path pathToCopy = fs::current_path();
     pathToCopy /= "test/data/folder-to-copy";
 
-    bool folderCopied = Helper::copyFolder(pathToCopy.string(), tmpPath);
-    BOOST_CHECK(folderCopied == true);
+    try {
+        Helper::copyFolder(pathToCopy.string(), tmpPath);
+        BOOST_CHECK(true);
+    }
+    catch(std::exception const& e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+        BOOST_CHECK(false);
+    }
 
     BOOST_CHECK(fs::is_directory(tmpPath) == true);
     BOOST_CHECK(fs::exists(tmpPath + testFile) == true);

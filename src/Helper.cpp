@@ -14,59 +14,41 @@
 
 namespace fs = boost::filesystem;
 
-bool Helper::copyFolder(std::string pathToCopy, std::string destinationStr) {
+void Helper::copyFolder(std::string pathToCopy, std::string destinationStr) {
     fs::path source = fs::path(pathToCopy);
     fs::path destination = fs::path(destinationStr);
 
-    try {
-        if (!fs::exists(source) || !fs::is_directory(source)) {
-            std::cerr << "Source directory " << source.string() << " does not exist or is not a directory." << '\n';
-            return false;
-        }
-
-        if(fs::exists(destination)) {
-            std::cerr << "Destination directory " << destination.string() << " already exists." << '\n';
-            return false;
-        }
-
-        if(!fs::create_directory(destination)) {
-            std::cerr << "Unable to create destination directory" << destination.string() << '\n';
-            return false;
-        }
+    if (!fs::exists(source) || !fs::is_directory(source)) {
+        throw std::runtime_error("Source directory " + source.string() + " does not exist or is not a directory.");
     }
-    catch(fs::filesystem_error const & e) {
-        std::cerr << e.what() << '\n';
-        return false;
+
+    if(fs::exists(destination)) {
+        throw std::runtime_error("Destination directory " + destination.string() + " already exists.");
+    }
+
+    if(!fs::create_directory(destination)) {
+        throw std::runtime_error("Unable to create destination directory " + destination.string());
     }
 
     for(fs::directory_iterator file(source); file != fs::directory_iterator(); ++file) {
-        try {
-            fs::path current(file->path());
+        fs::path current(file->path());
 
-            if(fs::is_directory(current)) {
-                if(!Helper::copyFolder(current.string(), (destination / current.filename()).string())) {
-                    return false;
-                }
+        if(fs::is_directory(current)) {
+            try {
+                Helper::copyFolder(current.string(), (destination / current.filename()).string());
             }
-            else {
-                fs::copy_file(current, destination / current.filename());
+            catch(std::exception const& e) {
+                throw e;
             }
         }
-        catch(fs::filesystem_error const& e) {
-            std:: cerr << e.what() << '\n';
+        else {
+            fs::copy_file(current, destination / current.filename());
         }
     }
-
-    return true;
 }
 
 void Helper::copyFile(std::string pathToCopy, std::string destinationStr) {
-    try {
-        fs::copy_file(pathToCopy, destinationStr);
-    }
-    catch(fs::filesystem_error const& e) {
-        throw e;
-    }
+    fs::copy_file(pathToCopy, destinationStr);
 }
 
 std::string Helper::filterPathName(std::string name) {

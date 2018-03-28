@@ -14,7 +14,7 @@
 
 class Helper {
 public:
-    static bool copyFolder(std::string pathToCopy, std::string destinationStr);
+    static void copyFolder(std::string pathToCopy, std::string destinationStr);
     static void copyFile(std::string pathToCopy, std::string destinationStr);
     static std::string filterPathName(std::string name);
 };
