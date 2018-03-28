@@ -40,5 +40,5 @@ void Note::save() {
 }
 
 void Note::deleteNote() {
-
+    fs::remove(fullPathToNote);
 }

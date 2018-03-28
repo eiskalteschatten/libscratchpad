@@ -34,10 +34,9 @@ BOOST_AUTO_TEST_CASE(getters) {
 BOOST_AUTO_TEST_CASE(saveNote) {
     std::string tmpPath = "/tmp/libscratchpad/";
     std::string pathToNote = tmpPath + "test/";
-    std::string noteName = "test note";
+    std::string noteName = "test note save";
     std::string contents = "note contents should go here";
 
-    // Check if it saved successfully
     Note note(pathToNote, noteName, contents);
     fs::path fullPathToNote = note.getFullPathToNote();
 
@@ -49,6 +48,29 @@ BOOST_AUTO_TEST_CASE(saveNote) {
         std::cerr << "exception: " << e.what() << std::endl;
         BOOST_CHECK(false);
     }
+
+    fs::remove_all(tmpPath);
+}
+
+BOOST_AUTO_TEST_CASE(deleteNote) {
+    std::string tmpPath = "/tmp/libscratchpad/";
+    std::string pathToNote = tmpPath + "test/";
+    std::string noteName = "test note delete";
+    std::string contents = "note contents should go here";
+
+    Note note(pathToNote, noteName, contents);
+    fs::path fullPathToNote = note.getFullPathToNote();
+
+    try {
+        note.save();
+        note.deleteNote();
+    }
+    catch(std::exception& e) {
+        std::cerr << "exception: " << e.what() << std::endl;
+        BOOST_CHECK(false);
+    }
+
+    BOOST_CHECK(fs::exists(fullPathToNote) == false);
 
     fs::remove_all(tmpPath);
 }
