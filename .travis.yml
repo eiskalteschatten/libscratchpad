@@ -11,5 +11,3 @@ matrix:
 before_install:
     - eval "${MATRIX_EVAL}"
     - brew update && brew upgrade boost
-
-install: make test
