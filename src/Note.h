@@ -14,8 +14,10 @@
 
 class Note {
 private:
-    std::string pathToNote;
     std::string name;
+    std::string pathToNote;
+    std::string fullPathToNote;
+    std::string noteExtension;
     std::string dateCreated;
     std::string contents;
     int pageNumber;
@@ -27,6 +29,7 @@ public:
 
     // Getters
     std::string const& getPathToNote() {return pathToNote;}
+    std::string const& getFullPathToNote() {return fullPathToNote;}
     std::string const& getName() {return name;}
     std::string const& getDateCreated() {return dateCreated;}
     std::string const& getContents() {return contents;}
