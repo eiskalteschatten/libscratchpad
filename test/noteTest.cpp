@@ -19,7 +19,7 @@ namespace fs = boost::filesystem;
 BOOST_AUTO_TEST_SUITE(noteSuite);
 
 BOOST_AUTO_TEST_CASE(getters) {
-    std::string pathToNote = "/tmp/libscratchpad/test/";
+    std::string pathToNote = "/tmp/libscratchpad/";
     std::string noteName = "test note";
     std::string contents = "note contents should go here";
     std::string fullPathToNote = pathToNote + "test_note.rtfd";
@@ -33,8 +33,7 @@ BOOST_AUTO_TEST_CASE(getters) {
 }
 
 BOOST_AUTO_TEST_CASE(saveNote) {
-    std::string tmpPath = "/tmp/libscratchpad/";
-    std::string pathToNote = tmpPath + "test/";
+    std::string pathToNote = "/tmp/libscratchpad/";
     std::string noteName = "test note save";
     std::string contents = "note contents should go here";
 
@@ -50,12 +49,11 @@ BOOST_AUTO_TEST_CASE(saveNote) {
         BOOST_CHECK(false);
     }
 
-    fs::remove_all(tmpPath);
+    fs::remove_all(pathToNote);
 }
 
 BOOST_AUTO_TEST_CASE(deleteNote) {
-    std::string tmpPath = "/tmp/libscratchpad/";
-    std::string pathToNote = tmpPath + "test/";
+    std::string pathToNote = "/tmp/libscratchpad/";
     std::string noteName = "test note delete";
     std::string contents = "note contents should go here";
 
@@ -73,12 +71,11 @@ BOOST_AUTO_TEST_CASE(deleteNote) {
 
     BOOST_CHECK(fs::exists(fullPathToNote) == false);
 
-    fs::remove_all(tmpPath);
+    fs::remove_all(pathToNote);
 }
 
 BOOST_AUTO_TEST_CASE(exportNote) {
-    std::string tmpPath = "/tmp/libscratchpad/";
-    std::string pathToNote = tmpPath + "test/";
+    std::string pathToNote = "/tmp/libscratchpad/";
     std::string noteName = "test note copy";
     std::string contents = "note contents should go here";
     std::string copyDestination = pathToNote + Helper::filterPathName("copy of test note copy.rtfd");
@@ -97,7 +94,7 @@ BOOST_AUTO_TEST_CASE(exportNote) {
 
     BOOST_CHECK(fs::exists(copyDestination) == true);
 
-    fs::remove_all(tmpPath);
+    fs::remove_all(pathToNote);
 }
 
 BOOST_AUTO_TEST_SUITE_END();
