@@ -15,8 +15,7 @@
 
 BOOST_AUTO_TEST_SUITE(noteSuite);
 
-BOOST_AUTO_TEST_CASE(getters)
-{
+BOOST_AUTO_TEST_CASE(getters) {
     std::string pathToNote = "/tmp/libscratchpad/test/";
     std::string noteName = "test note";
     std::string contents = "note contents should go here";
@@ -30,8 +29,7 @@ BOOST_AUTO_TEST_CASE(getters)
     BOOST_CHECK(note.getFullPathToNote() == fullPathToNote);
 }
 
-BOOST_AUTO_TEST_CASE(saveNote)
-{
+BOOST_AUTO_TEST_CASE(saveNote) {
     namespace fs = boost::filesystem;
 
     std::string tmpPath = "/tmp/libscratchpad/";

@@ -14,8 +14,7 @@
 
 BOOST_AUTO_TEST_SUITE(helperSuite);
 
-BOOST_AUTO_TEST_CASE(copyFolder)
-{
+BOOST_AUTO_TEST_CASE(copyFolder) {
     namespace fs = boost::filesystem;
 
     std::string tmpPath = "/tmp/folder-to-copy";
