@@ -8,9 +8,9 @@
 
 #include <boost/filesystem.hpp>
 #include <fstream>
-#include <regex>
 
 #include "Note.h"
+#include "Helper.h"
 
 namespace fs = boost::filesystem;
 
@@ -20,8 +20,7 @@ Note::Note(std::string ptn, std::string n, std::string c) {
     contents = c;
     noteExtension = ".rtfd";
 
-    std::regex pathFilter("[^A-Za-z0-9.-]");
-    fullPathToNote = pathToNote + std::regex_replace(name, pathFilter, "_") + noteExtension;
+    fullPathToNote = pathToNote + Helper::filterPathName(name) + noteExtension;
 
     if (!fs::is_directory(pathToNote)) {
         fs::create_directories(pathToNote);
@@ -40,5 +39,14 @@ void Note::save() {
 }
 
 void Note::deleteNote() {
-    fs::remove(fullPathToNote);
+    try {
+        fs::remove(fullPathToNote);
+    }
+    catch(fs::filesystem_error const& e) {
+        throw e;
+    }
+}
+
+void Note::exportNote(std::string destinationStr) {
+    Helper::copyFile(fullPathToNote, destinationStr);
 }

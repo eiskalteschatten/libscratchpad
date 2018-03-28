@@ -12,6 +12,7 @@
 #include <iostream>
 
 #include "../src/Note.h"
+#include "../src/Helper.h"
 
 namespace fs = boost::filesystem;
 
@@ -45,7 +46,7 @@ BOOST_AUTO_TEST_CASE(saveNote) {
         BOOST_CHECK(true);
     }
     catch(std::exception& e) {
-        std::cerr << "exception: " << e.what() << std::endl;
+        std::cerr << "Exception: " << e.what() << std::endl;
         BOOST_CHECK(false);
     }
 
@@ -71,6 +72,30 @@ BOOST_AUTO_TEST_CASE(deleteNote) {
     }
 
     BOOST_CHECK(fs::exists(fullPathToNote) == false);
+
+    fs::remove_all(tmpPath);
+}
+
+BOOST_AUTO_TEST_CASE(exportNote) {
+    std::string tmpPath = "/tmp/libscratchpad/";
+    std::string pathToNote = tmpPath + "test/";
+    std::string noteName = "test note copy";
+    std::string contents = "note contents should go here";
+    std::string copyDestination = pathToNote + Helper::filterPathName("copy of test note copy.rtfd");
+
+    Note note(pathToNote, noteName, contents);
+    fs::path fullPathToNote = note.getFullPathToNote();
+
+    try {
+        note.save();
+        note.exportNote(copyDestination);
+    }
+    catch(std::exception& e) {
+        std::cerr << "exception: " << e.what() << std::endl;
+        BOOST_CHECK(false);
+    }
+
+    BOOST_CHECK(fs::exists(copyDestination) == true);
 
     fs::remove_all(tmpPath);
 }

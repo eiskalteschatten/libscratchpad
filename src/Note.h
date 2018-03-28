@@ -25,6 +25,7 @@ public:
     Note(std::string ptn, std::string n, std::string c);
     void save();
     void deleteNote();
+    void exportNote(std::string destinationStr);
 
     // Getters
     std::string const& getPathToNote() {return pathToNote;}
