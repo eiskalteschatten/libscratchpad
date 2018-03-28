@@ -23,8 +23,7 @@ BOOST_AUTO_TEST_CASE(copyFolder) {
     fs::path pathToCopy = fs::current_path();
     pathToCopy /= "test/data/folder-to-copy";
 
-    if (fs::is_directory(tmpPath))
-    {
+    if (fs::is_directory(tmpPath)) {
         fs::remove_all(tmpPath);
     }
 
