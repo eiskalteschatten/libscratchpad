@@ -1,3 +1,5 @@
 *.xcodeproj
 
 *.o
+
+*.sublime*
