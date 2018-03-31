@@ -28,11 +28,11 @@ public:
     void exportNote(std::string destinationStr);
 
     // Getters
-    std::string const& getPathToNote() {return pathToNote;}
-    std::string const& getFullPathToNote() {return fullPathToNote;}
-    std::string const& getName() {return name;}
-    std::string const& getContents() {return contents;}
-    int const& getPageNumber() {return pageNumber;}
+    std::string const& getPathToNote() const {return pathToNote;}
+    std::string const& getFullPathToNote() const {return fullPathToNote;}
+    std::string const& getName() const {return name;}
+    std::string const& getContents() const {return contents;}
+    int const& getPageNumber() const {return pageNumber;}
 };
 
 #endif /* Note_h */
