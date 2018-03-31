@@ -5,7 +5,7 @@ CXXFLAGS=-c -Wall
 BUILD_DIR=build
 O_DIR=$(BUILD_DIR)/o
 SRC_DIR=src
-LIB_NAME=scratchpad.a
+LIB_NAME=scratchpadcore.a
 
 $(O_DIR)/%.o: $(SRC_DIR)/%.cpp $(SRC_DIR)/%.h
 	$(CXX) $(CXXFLAGS) $*.cpp -o $@
