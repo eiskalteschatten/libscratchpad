@@ -18,8 +18,11 @@ private:
     std::string pathToNote;
     std::string fullPathToNote;
     std::string noteExtension;
+    std::string dateModified;
     std::string contents;
     int pageNumber;
+
+    std::string getCurrentDate();
 
 public:
     Note(std::string ptn, std::string n, std::string c);
@@ -31,6 +34,7 @@ public:
     std::string const& getPathToNote() const {return pathToNote;}
     std::string const& getFullPathToNote() const {return fullPathToNote;}
     std::string const& getName() const {return name;}
+    std::string const& getDateModified() const {return dateModified;}
     std::string const& getContents() const {return contents;}
     int const& getPageNumber() const {return pageNumber;}
 };

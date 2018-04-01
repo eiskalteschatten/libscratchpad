@@ -8,6 +8,7 @@
 
 #include <boost/filesystem.hpp>
 #include <fstream>
+#include <ctime>
 
 #include "Note.h"
 #include "Helper.h"
@@ -36,6 +37,8 @@ void Note::save() {
 
     noteFile << contents;
     noteFile.close();
+
+    dateModified = getCurrentDate();
 }
 
 void Note::deleteNote() {
@@ -49,4 +52,9 @@ void Note::deleteNote() {
 
 void Note::exportNote(std::string destinationStr) {
     Helper::copyFile(fullPathToNote, destinationStr);
+}
+
+std::string Note::getCurrentDate() {
+    time_t now = time(0);
+    return ctime(&now);
 }

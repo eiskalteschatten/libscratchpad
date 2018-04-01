@@ -10,6 +10,7 @@
 #include <boost/test/unit_test.hpp>
 #include <string>
 #include <iostream>
+#include <ctime>
 
 #include "../src/Note.h"
 #include "../src/Helper.h"
@@ -93,6 +94,31 @@ BOOST_AUTO_TEST_CASE(exportNote) {
     }
 
     BOOST_CHECK(fs::exists(copyDestination) == true);
+
+    fs::remove_all(pathToNote);
+}
+
+BOOST_AUTO_TEST_CASE(dateModified) {
+    std::string pathToNote = "/tmp/libscratchpad/";
+    std::string noteName = "test note save";
+    std::string contents = "note contents should go here";
+
+    Note note(pathToNote, noteName, contents);
+    fs::path fullPathToNote = note.getFullPathToNote();
+
+    time_t now = time(0);
+    std::string nowStr = ctime(&now);
+
+    try {
+        note.save();
+        BOOST_CHECK(true);
+    }
+    catch(std::exception& e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+        BOOST_CHECK(false);
+    }
+
+    BOOST_CHECK(note.getDateModified() == nowStr);
 
     fs::remove_all(pathToNote);
 }
